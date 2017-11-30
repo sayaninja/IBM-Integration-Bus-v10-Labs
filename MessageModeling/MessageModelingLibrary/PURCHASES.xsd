@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:dfdl="http://www.ogf.org/dfdl/dfdl-1.0/" xmlns:dfdlCobolFmt="http://www.ibm.com/dfdl/CobolDataDefinitionFormat" xmlns:ibmDfdlExtn="http://www.ibm.com/dfdl/extensions" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions">
+  <xsd:import namespace="http://www.ibm.com/dfdl/CobolDataDefinitionFormat" schemaLocation="IBMdefined/CobolDataDefinitionFormat.xsd"/>
+  <xsd:complexType name="PURCHASES">
+    <xsd:sequence>
+      <xsd:element default=" " dfdl:length="1" dfdl:nilKind="literalCharacter" dfdl:nilValue="%SP; " name="REQUEST_TYPE" nillable="true">
+        <xsd:annotation>
+          <xsd:appinfo source="http://www.wsadie.com/appinfo">
+            <initialValue kind="SPACE"/>
+          </xsd:appinfo>
+          <xsd:documentation>PIC X display</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="dfdlCobolFmt:PICX__string">
+            <xsd:maxLength value="1"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element default=" " dfdl:length="2" dfdl:nilKind="literalCharacter" dfdl:nilValue="%SP; " name="RET_CODE" nillable="true">
+        <xsd:annotation>
+          <xsd:appinfo source="http://www.wsadie.com/appinfo">
+            <initialValue kind="SPACE"/>
+          </xsd:appinfo>
+          <xsd:documentation>PIC X(2) display</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="dfdlCobolFmt:PICX__string">
+            <xsd:maxLength value="2"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element default=" " dfdl:length="8" dfdl:nilKind="literalCharacter" dfdl:nilValue="%SP; " name="CustomerId" nillable="true">
+        <xsd:annotation>
+          <xsd:appinfo source="http://www.wsadie.com/appinfo">
+            <initialValue kind="SPACE"/>
+          </xsd:appinfo>
+          <xsd:documentation>PIC X(8) display</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="dfdlCobolFmt:PICX__string">
+            <xsd:maxLength value="8"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element default=" " dfdl:length="20" dfdl:nilKind="literalCharacter" dfdl:nilValue="%SP; " name="CustomerLastName" nillable="true">
+        <xsd:annotation>
+          <xsd:appinfo source="http://www.wsadie.com/appinfo">
+            <initialValue kind="SPACE"/>
+          </xsd:appinfo>
+          <xsd:documentation>PIC X(20) display</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="dfdlCobolFmt:PICX__string">
+            <xsd:maxLength value="20"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element default=" " dfdl:length="20" dfdl:nilKind="literalCharacter" dfdl:nilValue="%SP; " name="CustomerFirstName" nillable="true">
+        <xsd:annotation>
+          <xsd:appinfo source="http://www.wsadie.com/appinfo">
+            <initialValue kind="SPACE"/>
+          </xsd:appinfo>
+          <xsd:documentation>PIC X(20) display</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="dfdlCobolFmt:PICX__string">
+            <xsd:maxLength value="20"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element default=" " dfdl:length="30" dfdl:nilKind="literalCharacter" dfdl:nilValue="%SP; " name="CustomerCompany" nillable="true">
+        <xsd:annotation>
+          <xsd:appinfo source="http://www.wsadie.com/appinfo">
+            <initialValue kind="SPACE"/>
+          </xsd:appinfo>
+          <xsd:documentation>PIC X(30) display</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="dfdlCobolFmt:PICX__string">
+            <xsd:maxLength value="30"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element default=" " dfdl:length="30" dfdl:nilKind="literalCharacter" dfdl:nilValue="%SP; " name="CustomerAddr1" nillable="true">
+        <xsd:annotation>
+          <xsd:appinfo source="http://www.wsadie.com/appinfo">
+            <initialValue kind="SPACE"/>
+          </xsd:appinfo>
+          <xsd:documentation>PIC X(30) display</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="dfdlCobolFmt:PICX__string">
+            <xsd:maxLength value="30"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element default=" " dfdl:length="30" dfdl:nilKind="literalCharacter" dfdl:nilValue="%SP; " name="CustomerAddr2" nillable="true">
+        <xsd:annotation>
+          <xsd:appinfo source="http://www.wsadie.com/appinfo">
+            <initialValue kind="SPACE"/>
+          </xsd:appinfo>
+          <xsd:documentation>PIC X(30) display</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="dfdlCobolFmt:PICX__string">
+            <xsd:maxLength value="30"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element default=" " dfdl:length="20" dfdl:nilKind="literalCharacter" dfdl:nilValue="%SP; " name="CustomerCity" nillable="true">
+        <xsd:annotation>
+          <xsd:appinfo source="http://www.wsadie.com/appinfo">
+            <initialValue kind="SPACE"/>
+          </xsd:appinfo>
+          <xsd:documentation>PIC X(20) display</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="dfdlCobolFmt:PICX__string">
+            <xsd:maxLength value="20"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element default=" " dfdl:length="20" dfdl:nilKind="literalCharacter" dfdl:nilValue="%SP; " name="CustomerState" nillable="true">
+        <xsd:annotation>
+          <xsd:appinfo source="http://www.wsadie.com/appinfo">
+            <initialValue kind="SPACE"/>
+          </xsd:appinfo>
+          <xsd:documentation>PIC X(20) display</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="dfdlCobolFmt:PICX__string">
+            <xsd:maxLength value="20"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element default=" " dfdl:length="30" dfdl:nilKind="literalCharacter" dfdl:nilValue="%SP; " name="CustomerCountry" nillable="true">
+        <xsd:annotation>
+          <xsd:appinfo source="http://www.wsadie.com/appinfo">
+            <initialValue kind="SPACE"/>
+          </xsd:appinfo>
+          <xsd:documentation>PIC X(30) display</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="dfdlCobolFmt:PICX__string">
+            <xsd:maxLength value="30"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element default=" " dfdl:length="20" dfdl:nilKind="literalCharacter" dfdl:nilValue="%SP; " name="CustomerMailCode" nillable="true">
+        <xsd:annotation>
+          <xsd:appinfo source="http://www.wsadie.com/appinfo">
+            <initialValue kind="SPACE"/>
+          </xsd:appinfo>
+          <xsd:documentation>PIC X(20) display</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="dfdlCobolFmt:PICX__string">
+            <xsd:maxLength value="20"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element default=" " dfdl:length="20" dfdl:nilKind="literalCharacter" dfdl:nilValue="%SP; " name="CustomerPhone" nillable="true">
+        <xsd:annotation>
+          <xsd:appinfo source="http://www.wsadie.com/appinfo">
+            <initialValue kind="SPACE"/>
+          </xsd:appinfo>
+          <xsd:documentation>PIC X(20) display</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="dfdlCobolFmt:PICX__string">
+            <xsd:maxLength value="20"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element default=" " dfdl:length="8" dfdl:nilKind="literalCharacter" dfdl:nilValue="%SP; " name="CustomerLastUpdateDate" nillable="true">
+        <xsd:annotation>
+          <xsd:appinfo source="http://www.wsadie.com/appinfo">
+            <initialValue kind="SPACE"/>
+          </xsd:appinfo>
+          <xsd:documentation>PIC X(8) display</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="dfdlCobolFmt:PICX__string">
+            <xsd:maxLength value="8"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element default="0" dfdl:nilKind="literalCharacter" dfdl:nilValue="%#r00; " ibmDfdlExtn:sampleValue="1" name="PurchaseCount" nillable="true">
+        <xsd:annotation>
+          <xsd:documentation>PIC 9(3) binary</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="dfdlCobolFmt:PIC9-Comp__short">
+            <xsd:minInclusive value="0"/>
+            <xsd:maxInclusive value="999"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element dfdl:lengthKind="implicit" dfdl:occursCount="{../PurchaseCount}" dfdl:occursCountKind="expression" maxOccurs="99" minOccurs="0" name="Purchase">
+        <xsd:annotation>
+          <xsd:appinfo source="http://www.wsadie.com/appinfo">
+            <dependingOn>//PURCHASES;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=14/PurchaseCount;XSDElementDeclaration</dependingOn>
+          </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element default="0" dfdl:decimalSigned="no" dfdl:length="5" dfdl:nilKind="literalCharacter" dfdl:nilValue="%#r00; " dfdl:textNumberPattern="00000+" name="PurchaseId" nillable="true">
+              <xsd:annotation>
+                <xsd:documentation>PIC 9(5) display</xsd:documentation>
+              </xsd:annotation>
+              <xsd:simpleType>
+                <xsd:restriction base="dfdlCobolFmt:PIC9-Display-Zoned__int">
+                  <xsd:minInclusive value="0"/>
+                  <xsd:maxInclusive value="99999"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element default=" " dfdl:length="30" dfdl:nilKind="literalCharacter" dfdl:nilValue="%SP; " name="ProductName" nillable="true">
+              <xsd:annotation>
+                <xsd:appinfo source="http://www.wsadie.com/appinfo">
+                  <initialValue kind="SPACE"/>
+                </xsd:appinfo>
+                <xsd:documentation>PIC X(30) display</xsd:documentation>
+              </xsd:annotation>
+              <xsd:simpleType>
+                <xsd:restriction base="dfdlCobolFmt:PICX__string">
+                  <xsd:maxLength value="30"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element default="0" dfdl:decimalSigned="no" dfdl:length="2" dfdl:nilKind="literalCharacter" dfdl:nilValue="%#r00; " dfdl:textNumberPattern="00+" name="Amount" nillable="true">
+              <xsd:annotation>
+                <xsd:documentation>PIC 9(2) display</xsd:documentation>
+              </xsd:annotation>
+              <xsd:simpleType>
+                <xsd:restriction base="dfdlCobolFmt:PIC9-Display-Zoned__short">
+                  <xsd:minInclusive value="0"/>
+                  <xsd:maxInclusive value="99"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element default="0" dfdl:decimalSigned="no" dfdl:length="10" dfdl:nilKind="literalCharacter" dfdl:nilValue="%#r00; " dfdl:textNumberPattern="00000000V00+" name="Price" nillable="true">
+              <xsd:annotation>
+                <xsd:documentation>PIC 9(8)V9(2) display</xsd:documentation>
+              </xsd:annotation>
+              <xsd:simpleType>
+                <xsd:restriction base="dfdlCobolFmt:PIC9-Display-Zoned__decimal">
+                  <xsd:minInclusive value="0"/>
+                  <xsd:maxInclusive value="99999999.99"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element default=" " dfdl:length="50" dfdl:nilKind="literalCharacter" dfdl:nilValue="%SP; " name="RETURN_COMMENT" nillable="true">
+        <xsd:annotation>
+          <xsd:appinfo source="http://www.wsadie.com/appinfo">
+            <initialValue kind="SPACE"/>
+          </xsd:appinfo>
+          <xsd:documentation>PIC X(50) display</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="dfdlCobolFmt:PICX__string">
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:annotation>
+    <xsd:appinfo source="http://www.ogf.org/dfdl/">
+      <dfdl:format binaryFloatRep="{$dfdl:binaryFloatRep}" byteOrder="{$dfdl:byteOrder}" encoding="{$dfdl:encoding}" ignoreCase="yes" leadingSkip="0" occursCountKind="fixed" ref="dfdlCobolFmt:CobolDataFormat" textNumberPadCharacter="0" textStringJustification="left" textStringPadCharacter="%SP;" textZonedSignStyle="asciiStandard" trailingSkip="0" useNilForDefault="no"/>
+    </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:annotation>
+    <xsd:documentation>
+	This XSD was created by importing COBOL copybook.
+
+	Source file:	importFiles\PURCHASES.cpy
+
+	Import options:
+		CODEPAGE=ISO-8859-1
+		ENDIAN=Little
+		EXTENSION_CBL=FP
+		EXTENSION_CCP=FP
+		EXTENSION_COB=FP
+		EXTENSION_CPY=DS
+		EXT_DECIMAL_SIGN=ASCII
+		FLOATING_POINT_FORMAT=0
+		NSYMBOL=NATIONAL
+		NUMPROC=PFD
+		PLATFORM_SELECTION=0
+		QUOTE=DOUBLE
+		REMOTE_ENDIAN=Little
+		TRUNC=STD
+		SCHEMA_TARGET_NAMESPACE_URI=null
+		CREATE_DEFAULT_VALUES_FROM_INITIAL_VALUES=true
+		CREATE_FACETS_FROM_LEVEL_88_VALUE_CLAUSES=true
+		PRESERVE_CASE_IN_VARIABLE_NAMES=true
+		CREATE_NULL_VALUES_FOR_FIELDS=true
+		NULL_CHARACTER_FOR_STRING=%SP; 
+		NULL_CHARACTER_FOR_NUMBER=%#r00; 
+		STRING_PADDING_CHARACTER=%SP;
+		NUMBER_PADDING_CHARACTER=0
+		DEFAULT_FOR_STRING= 
+		DEFAULT_FOR_NUMBER=0
+
+</xsd:documentation>
+  </xsd:annotation>
+  <xsd:element dfdl:lengthKind="implicit" ibmSchExtn:docRoot="true" name="PURCHASES" type="PURCHASES"/>
+</xsd:schema>

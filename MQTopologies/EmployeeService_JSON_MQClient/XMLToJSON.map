@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="default" version="8.0.5.0" xmlns:map="default">
+    <inlinedXMLSchema><![CDATA[<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">  
+    <xsd:element name="SavedHttpRequestIdentifier" type="xsd:string"/>  
+</xsd:schema>]]></inlinedXMLSchema>
+    <input path="jar:file://!com/ibm/etools/mft/map/xsds/assembly/Environment.xsd" var="var3"/>
+    <input inlinedXMLSchema="true" path="../schema_0.xsd" var="var1"/>
+    <input inlinedXMLSchema="true" path="../schema_0.xsd" var="var4"/>
+    <input path="mbsharedlib://EmployeeService_interface_and_maps/hrdb/iibuser/HRDB.xsd" var="var6"/>
+    <output path="jar:file://!com/ibm/etools/mft/map/xsds/assembly/Environment.xsd" var="var5"/>
+    <output path="jar:file://!com/ibm/etools/mft/map/xsds/predefined/JsonDomainMsg.xsd" var="var"/>
+    <namespaces>
+        <namespace kind="supplement" prefix="in" uri="http://sample/iibadmin"/>
+        <namespace kind="supplement" prefix="out" uri="http://www.ibm.com/iib/msl/json"/>
+    </namespaces>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="XMLToJSON">
+        <input path="$var3/mb:env(Environment)" var="Environment">
+            <cast castType="userDefined" path="$Environment/any" qualifier="SavedHttpRequestIdentifier" ref="var1" var="any"/>
+        </input>
+        <input namespace="http://hrdb/iibuser" path="$var6/mb:msg(EmployeeResponse,assembly,XMLNSC,Properties)" var="MessageAssembly"/>
+        <output path="$var5/mb:env(Environment)" var="Environment1">
+            <cast castType="userDefined" path="$Environment1/any" qualifier="SavedHttpRequestIdentifier" ref="var1" var="any1"/>
+        </output>
+        <output namespace="http://www.ibm.com/iib/msl/json" path="$var/mb:msg(JSON,assembly,JSON,LocalEnvironment,Properties)" var="ComIbmMessageAssembly_JSON">
+            <cast castType="userDefined" path="$ComIbmMessageAssembly_JSON/JSON/Data/type('anyType')" qualifier="{http://www.ibm.com/iib/msl/json}JSONObject" ref="var" var="anyType"/>
+            <cast path="$ComIbmMessageAssembly_JSON/JSON/spath('Data',2)/any" qualifier="{http://hrdb/iibuser}EmployeeResponse" var="any3"/>
+        </output>
+        <passthrough>
+            <input path="$Environment/."/>
+            <output path="$Environment1/."/>
+            <updates/>
+        </passthrough>
+        <move>
+            <input path="$Environment/SavedHttpRequestIdentifier[1]"/>
+            <output path="$ComIbmMessageAssembly_JSON/LocalEnvironment/Destination/HTTP/RequestIdentifier"/>
+        </move>
+        <local>
+            <input path="$MessageAssembly/EmployeeResponse/DBResp"/>
+            <output path="$ComIbmMessageAssembly_JSON/JSON/spath('Data',2)/EmployeeResponse/DBResp"/>
+            <move automap="true">
+                <input path="UserReturnCode"/>
+                <output path="UserReturnCode"/>
+            </move>
+            <move automap="true">
+                <input path="RowsRetrieved"/>
+                <output path="RowsRetrieved"/>
+            </move>
+            <move automap="true">
+                <input path="RowsAdded"/>
+                <output path="RowsAdded"/>
+            </move>
+            <move automap="true">
+                <input path="RowsUpdated"/>
+                <output path="RowsUpdated"/>
+            </move>
+            <move automap="true">
+                <input path="RowsDeleted"/>
+                <output path="RowsDeleted"/>
+            </move>
+            <move automap="true">
+                <input path="SQLCode_ErrorCode"/>
+                <output path="SQLCode_ErrorCode"/>
+            </move>
+            <move automap="true">
+                <input path="SQLState_SQLState"/>
+                <output path="SQLState_SQLState"/>
+            </move>
+            <move automap="true">
+                <input path="SQL_Error_Message"/>
+                <output path="SQL_Error_Message"/>
+            </move>
+        </local>
+        <foreach>
+            <input path="$MessageAssembly/EmployeeResponse/EMPLOYEE"/>
+            <output path="$ComIbmMessageAssembly_JSON/JSON/spath('Data',2)/EmployeeResponse/EMPLOYEE"/>
+            <move automap="true">
+                <input path="EMPNO"/>
+                <output path="EMPNO"/>
+            </move>
+            <move automap="true">
+                <input path="FIRSTNME"/>
+                <output path="FIRSTNME"/>
+            </move>
+            <move automap="true">
+                <input path="MIDINIT"/>
+                <output path="MIDINIT"/>
+            </move>
+            <move automap="true">
+                <input path="LASTNAME"/>
+                <output path="LASTNAME"/>
+            </move>
+            <move automap="true">
+                <input path="WORKDEPT"/>
+                <output path="WORKDEPT"/>
+            </move>
+            <move automap="true">
+                <input path="PHONENO"/>
+                <output path="PHONENO"/>
+            </move>
+            <move automap="true">
+                <input path="HIREDATE"/>
+                <output path="HIREDATE"/>
+            </move>
+            <move automap="true">
+                <input path="JOB"/>
+                <output path="JOB"/>
+            </move>
+            <move automap="true">
+                <input path="EDLEVEL"/>
+                <output path="EDLEVEL"/>
+            </move>
+            <move automap="true">
+                <input path="SEX"/>
+                <output path="SEX"/>
+            </move>
+            <move automap="true">
+                <input path="BIRTHDATE"/>
+                <output path="BIRTHDATE"/>
+            </move>
+            <move automap="true">
+                <input path="SALARY"/>
+                <output path="SALARY"/>
+            </move>
+            <move automap="true">
+                <input path="BONUS"/>
+                <output path="BONUS"/>
+            </move>
+            <move automap="true">
+                <input path="COMM"/>
+                <output path="COMM"/>
+            </move>
+        </foreach>
+    </mappingDeclaration>
+</mappingRoot>

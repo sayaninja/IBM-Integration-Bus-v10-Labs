@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--xtools2_universal_type_manager-->
+<xmi:XMI xmlns:datamodelversion="http://www.ibm.com/com.ibm.datatools.core/model/data/1.8.0.0" xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SQLConstraints="http:///org/eclipse/datatools/modelbase/sql/constraints.ecore" xmlns:SQLDataTypes="http:///org/eclipse/datatools/modelbase/sql/datatypes.ecore" xmlns:SQLSchema="http:///org/eclipse/datatools/modelbase/sql/schema.ecore" xmlns:SQLServerModel="http:///com/ibm/db/models/sqlserver/sqlserver.ecore" xmlns:SQLTables="http:///org/eclipse/datatools/modelbase/sql/tables.ecore">
+  <SQLSchema:Database xmi:id="_sA_msM9oEeeNOufxSPxTZw" name="HRDB" vendor="SQL Server" version="2012" schemas="_sDSswM9oEeeNOufxSPxTZw">
+    <eAnnotations xmi:id="_sA_msc9oEeeNOufxSPxTZw" source="ConnectionURI">
+      <details xmi:id="_sA_mss9oEeeNOufxSPxTZw" key="ConnectionKey" value="HRDB"/>
+    </eAnnotations>
+  </SQLSchema:Database>
+  <SQLSchema:Schema xmi:id="_sDSswM9oEeeNOufxSPxTZw" name="IIBADMIN" indices="_sDSswc9oEeeNOufxSPxTZw" tables="_sDTT3c9oEeeNOufxSPxTZw _sDTT0M9oEeeNOufxSPxTZw" database="_sA_msM9oEeeNOufxSPxTZw"/>
+  <SQLConstraints:Index xmi:id="_sDSswc9oEeeNOufxSPxTZw" name="PK__DEPARTME__E0EB08D7922936C7" Schema="_sDSswM9oEeeNOufxSPxTZw" clustered="true" unique="true" table="_sDTT0M9oEeeNOufxSPxTZw">
+    <extensions xsi:type="SQLServerModel:SQLServerIndexExtension" xmi:id="_sDSsws9oEeeNOufxSPxTZw"/>
+    <members xmi:id="_sDSsw89oEeeNOufxSPxTZw" column="_sDTT0s9oEeeNOufxSPxTZw"/>
+  </SQLConstraints:Index>
+  <SQLTables:PersistentTable xmi:id="_sDTT0M9oEeeNOufxSPxTZw" name="DEPARTMENT" schema="_sDSswM9oEeeNOufxSPxTZw" index="_sDSswc9oEeeNOufxSPxTZw">
+    <extensions xsi:type="SQLServerModel:SQLServerPersistentTableExtension" xmi:id="_sDTT0c9oEeeNOufxSPxTZw"/>
+    <columns xmi:id="_sDTT0s9oEeeNOufxSPxTZw" name="DEPTNO" nullable="false">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_sDTT089oEeeNOufxSPxTZw" name="CHAR" length="3"/>
+    </columns>
+    <columns xmi:id="_sDTT1M9oEeeNOufxSPxTZw" name="DEPTNAME" nullable="false">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_sDTT1c9oEeeNOufxSPxTZw" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="36"/>
+    </columns>
+    <columns xmi:id="_sDTT1s9oEeeNOufxSPxTZw" name="MGRNO">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_sDTT189oEeeNOufxSPxTZw" name="CHAR" length="6"/>
+    </columns>
+    <columns xmi:id="_sDTT2M9oEeeNOufxSPxTZw" name="ADMRDEPT" nullable="false">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_sDTT2c9oEeeNOufxSPxTZw" name="CHAR" length="3"/>
+    </columns>
+    <columns xmi:id="_sDTT2s9oEeeNOufxSPxTZw" name="LOCATION">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_sDTT289oEeeNOufxSPxTZw" name="CHAR" length="16"/>
+    </columns>
+    <constraints xsi:type="SQLConstraints:PrimaryKey" xmi:id="_sDTT3M9oEeeNOufxSPxTZw" name="PK__DEPARTME__E0EB08D7922936C7" members="_sDTT0s9oEeeNOufxSPxTZw"/>
+  </SQLTables:PersistentTable>
+  <SQLTables:PersistentTable xmi:id="_sDTT3c9oEeeNOufxSPxTZw" name="EMPLOYEE" schema="_sDSswM9oEeeNOufxSPxTZw">
+    <extensions xsi:type="SQLServerModel:SQLServerPersistentTableExtension" xmi:id="_sDTT3s9oEeeNOufxSPxTZw"/>
+    <columns xmi:id="_sDTT389oEeeNOufxSPxTZw" name="EMPNO" nullable="false">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_sDTT4M9oEeeNOufxSPxTZw" name="CHAR" length="6"/>
+    </columns>
+    <columns xmi:id="_sDTT4c9oEeeNOufxSPxTZw" name="FIRSTNME" nullable="false">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_sDTT4s9oEeeNOufxSPxTZw" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="12"/>
+    </columns>
+    <columns xmi:id="_sDTT489oEeeNOufxSPxTZw" name="MIDINIT">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_sDTT5M9oEeeNOufxSPxTZw" name="CHAR"/>
+    </columns>
+    <columns xmi:id="_sDTT5c9oEeeNOufxSPxTZw" name="LASTNAME" nullable="false">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_sDTT5s9oEeeNOufxSPxTZw" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="15"/>
+    </columns>
+    <columns xmi:id="_sDTT589oEeeNOufxSPxTZw" name="WORKDEPT">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_sDTT6M9oEeeNOufxSPxTZw" name="CHAR" length="3"/>
+    </columns>
+    <columns xmi:id="_sDTT6c9oEeeNOufxSPxTZw" name="PHONENO">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_sDTT6s9oEeeNOufxSPxTZw" name="CHAR" length="4"/>
+    </columns>
+    <columns xmi:id="_sDTT689oEeeNOufxSPxTZw" name="HIREDATE">
+      <containedType xsi:type="SQLDataTypes:DateDataType" xmi:id="_sDTT7M9oEeeNOufxSPxTZw" name="DATE" primitiveType="DATE"/>
+    </columns>
+    <columns xmi:id="_sDTT7c9oEeeNOufxSPxTZw" name="JOB">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_sDTT7s9oEeeNOufxSPxTZw" name="CHAR" length="8"/>
+    </columns>
+    <columns xmi:id="_sDTT789oEeeNOufxSPxTZw" name="EDLEVEL" nullable="false">
+      <containedType xsi:type="SQLDataTypes:IntegerDataType" xmi:id="_sDTT8M9oEeeNOufxSPxTZw" name="SMALLINT" primitiveType="SMALLINT"/>
+    </columns>
+    <columns xmi:id="_sDTT8c9oEeeNOufxSPxTZw" name="SEX">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_sDTT8s9oEeeNOufxSPxTZw" name="CHAR"/>
+    </columns>
+    <columns xmi:id="_sDTT889oEeeNOufxSPxTZw" name="BIRTHDATE">
+      <containedType xsi:type="SQLDataTypes:DateDataType" xmi:id="_sDTT9M9oEeeNOufxSPxTZw" name="DATE" primitiveType="DATE"/>
+    </columns>
+    <columns xmi:id="_sDTT9c9oEeeNOufxSPxTZw" name="SALARY">
+      <containedType xsi:type="SQLDataTypes:FixedPrecisionDataType" xmi:id="_sDTT9s9oEeeNOufxSPxTZw" name="DECIMAL" primitiveType="DECIMAL" precision="9" scale="2"/>
+    </columns>
+    <columns xmi:id="_sDTT989oEeeNOufxSPxTZw" name="BONUS">
+      <containedType xsi:type="SQLDataTypes:FixedPrecisionDataType" xmi:id="_sDTT-M9oEeeNOufxSPxTZw" name="DECIMAL" primitiveType="DECIMAL" precision="9" scale="2"/>
+    </columns>
+    <columns xmi:id="_sDTT-c9oEeeNOufxSPxTZw" name="COMM">
+      <containedType xsi:type="SQLDataTypes:FixedPrecisionDataType" xmi:id="_sDT64M9oEeeNOufxSPxTZw" name="DECIMAL" primitiveType="DECIMAL" precision="9" scale="2"/>
+    </columns>
+  </SQLTables:PersistentTable>
+</xmi:XMI>

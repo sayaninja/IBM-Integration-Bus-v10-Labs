@@ -1,0 +1,9 @@
+CREATE PROCEDURE decodeBase64Image ( IN encodedImage CHARACTER ) RETURNS BLOB
+BEGIN
+
+	declare decodedImage BLOB;
+	set decodedImage = BASE64DECODE(encodedImage);
+	
+	RETURN decodedImage;
+		
+END; 

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="default" version="8.0.5.0" xmlns:map="default">
+    <input path="jar:file://!com/ibm/etools/mft/map/xsds/predefined/JsonDomainMsg.xsd" var="var"/>
+    <input derivedFrom="MB:JSON_schema_in_swagger_document" path="/HR_Employee_and_Department_Services.json" var="var1"/>
+    <input path="jar:file://!com/ibm/msl/mapping/rdb/xsds/dbreturn.xsd" var="var8"/>
+    <input path="jar:file://!com/ibm/msl/mapping/rdb/xsds/dbexception.xsd" var="var9"/>
+    <output path="db:table(/HRDB.dbm,HRDB,IIBADMIN,EMPLOYEE)" var="EMPLOYEE"/>
+    <output path="jar:file://!com/ibm/etools/mft/map/xsds/predefined/JsonDomainMsg.xsd" var="var3"/>
+    <output derivedFrom="MB:JSON_schema_in_swagger_document" path="/HR_Employee_and_Department_Services.json" var="var7"/>
+    <namespaces>
+        <namespace kind="supplement" prefix="io" uri="http://www.ibm.com/iib/msl/json"/>
+    </namespaces>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="addEmployeeToDatabase">
+        <input derivedFrom="MB:JSON_operation_name:createMultipartEmployee" namespace="http://www.ibm.com/iib/msl/json" path="$var/mb:msg(JSON,assembly,JSON,Properties,LocalEnvironment)" var="ComIbmMessageAssembly_JSON">
+            <cast derivedFrom="MB:JSON_operation_request" path="$ComIbmMessageAssembly_JSON/JSON/Data/type('anyType')" qualifier="{http://www.ibm.com/iib/msl/json}EMPLOYEE" ref="var1" var="anyType"/>
+        </input>
+        <output path="$EMPLOYEE/db:insert(fn:true(),EMPNO,FIRSTNME,MIDINIT,LASTNAME,WORKDEPT,PHONENO,HIREDATE,JOB,EDLEVEL,SEX,BIRTHDATE,SALARY,BONUS,COMM)" var="dbinsert"/>
+        <output namespace="http://www.ibm.com/iib/msl/json" path="$var3/mb:msg(JSON,assembly,JSON,Properties)" var="MessageAssembly2">
+            <cast derivedFrom="MB:JSON_operation_response" path="$MessageAssembly2/JSON/Data/type('anyType')" qualifier="{http://www.ibm.com/iib/msl/json}EmployeeResponse" ref="var7" var="anyType2"/>
+        </output>
+        <transaction>
+            <insert ref="dbinsert">
+                <input path="$ComIbmMessageAssembly_JSON/JSON/spath('Data',2)"/>
+                <output path="$dbinsert/."/>
+                <move>
+                    <input path="EMPNO"/>
+                    <output path="EMPNO"/>
+                </move>
+                <move>
+                    <input path="FIRSTNME"/>
+                    <output path="FIRSTNME"/>
+                </move>
+                <move>
+                    <input path="MIDINIT"/>
+                    <output path="MIDINIT"/>
+                </move>
+                <move>
+                    <input path="LASTNAME"/>
+                    <output path="LASTNAME"/>
+                </move>
+                <move>
+                    <input path="WORKDEPT"/>
+                    <output path="WORKDEPT"/>
+                </move>
+                <move>
+                    <input path="PHONENO"/>
+                    <output path="PHONENO"/>
+                </move>
+                <move>
+                    <input path="HIREDATE"/>
+                    <output path="HIREDATE"/>
+                </move>
+                <move>
+                    <input path="JOB"/>
+                    <output path="JOB"/>
+                </move>
+                <move>
+                    <input path="EDLEVEL"/>
+                    <output path="EDLEVEL"/>
+                </move>
+                <move>
+                    <input path="SEX"/>
+                    <output path="SEX"/>
+                </move>
+                <move>
+                    <input path="BIRTHDATE"/>
+                    <output path="BIRTHDATE"/>
+                </move>
+                <move>
+                    <input path="SALARY"/>
+                    <output path="SALARY"/>
+                </move>
+                <move>
+                    <input path="BONUS"/>
+                    <output path="BONUS"/>
+                </move>
+                <move>
+                    <input path="COMM"/>
+                    <output path="COMM"/>
+                </move>
+            </insert>
+            <return>
+                <input path="$var8/DBInsertReturn" var="DBInsertReturn1"/>
+                <input path="$ComIbmMessageAssembly_JSON/JSON/spath('Data',2)" var="Data1"/>
+                <input path="$ComIbmMessageAssembly_JSON/Properties" var="Properties1"/>
+                <output path="$MessageAssembly2/."/>
+                <move>
+                    <input path="$Data1/EMPNO"/>
+                    <output path="JSON/spath('Data',2)/Employee/Item/EMPNO"/>
+                </move>
+                <move>
+                    <input path="$Data1/FIRSTNME"/>
+                    <output path="JSON/spath('Data',2)/Employee/Item/FIRSTNME"/>
+                </move>
+                <move>
+                    <input path="$Data1/MIDINIT"/>
+                    <output path="JSON/spath('Data',2)/Employee/Item/MIDINIT"/>
+                </move>
+                <move>
+                    <input path="$Data1/LASTNAME"/>
+                    <output path="JSON/spath('Data',2)/Employee/Item/LASTNAME"/>
+                </move>
+                <move>
+                    <input path="$Data1/WORKDEPT"/>
+                    <output path="JSON/spath('Data',2)/Employee/Item/WORKDEPT"/>
+                </move>
+                <move>
+                    <input path="$Data1/PHONENO"/>
+                    <output path="JSON/spath('Data',2)/Employee/Item/PHONENO"/>
+                </move>
+                <move>
+                    <input path="$Data1/HIREDATE"/>
+                    <output path="JSON/spath('Data',2)/Employee/Item/HIREDATE"/>
+                </move>
+                <move>
+                    <input path="$Data1/JOB"/>
+                    <output path="JSON/spath('Data',2)/Employee/Item/JOB"/>
+                </move>
+                <move>
+                    <input path="$Data1/EDLEVEL"/>
+                    <output path="JSON/spath('Data',2)/Employee/Item/EDLEVEL"/>
+                </move>
+                <move>
+                    <input path="$Data1/SEX"/>
+                    <output path="JSON/spath('Data',2)/Employee/Item/SEX"/>
+                </move>
+                <move>
+                    <input path="$Data1/BIRTHDATE"/>
+                    <output path="JSON/spath('Data',2)/Employee/Item/BIRTHDATE"/>
+                </move>
+                <move>
+                    <input path="$Data1/SALARY"/>
+                    <output path="JSON/spath('Data',2)/Employee/Item/SALARY"/>
+                </move>
+                <move>
+                    <input path="$Data1/BONUS"/>
+                    <output path="JSON/spath('Data',2)/Employee/Item/BONUS"/>
+                </move>
+                <move>
+                    <input path="$Data1/COMM"/>
+                    <output path="JSON/spath('Data',2)/Employee/Item/COMM"/>
+                </move>
+                <move>
+                    <input path="$Properties1/."/>
+                    <output path="Properties"/>
+                </move>
+                <move>
+                    <input path="$DBInsertReturn1/NumberOfRowsInserted"/>
+                    <output path="JSON/spath('Data',2)/DBResp/RowsAdded"/>
+                </move>
+                <assign value="0">
+                    <output path="JSON/spath('Data',2)/DBResp/UserReturnCode"/>
+                </assign>
+            </return>
+            <failure>
+                <input path="$var9/DBExceptions"/>
+                <output path="$MessageAssembly2/."/>
+                <move>
+                    <input path="DBException/Message"/>
+                    <output path="JSON/spath('Data',2)/DBResp/SQL_Error_Message"/>
+                </move>
+                <move>
+                    <input path="DBException/SQLState"/>
+                    <output path="JSON/spath('Data',2)/DBResp/SQLSTATE_SQLState"/>
+                </move>
+                <move>
+                    <input path="DBException/ErrorCode"/>
+                    <output path="JSON/spath('Data',2)/DBResp/SQLCODE_Errorcode"/>
+                </move>
+                <assign value="-1">
+                    <output path="JSON/spath('Data',2)/DBResp/UserReturnCode"/>
+                </assign>
+                <assign value="0">
+                    <output path="JSON/spath('Data',2)/DBResp/RowsAdded"/>
+                </assign>
+            </failure>
+        </transaction>
+    </mappingDeclaration>
+</mappingRoot>

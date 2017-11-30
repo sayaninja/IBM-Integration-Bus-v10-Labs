@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="false" targetNamespace="default" version="8.0.5.0" xmlns:map="default">
+    <input path="/hrdb/iibadmin/HRDB.xsd" var="var"/>
+    <input path="jar:file://!com/ibm/msl/mapping/rdb/xsds/dbreturn.xsd" var="var1"/>
+    <output path="/hrdb/iibadmin/HRDB.xsd" var="var2"/>
+    <output path="db:table(/HRDB.dbm,HRDB,IIBADMIN,EMPLOYEE)" var="EMPLOYEE"/>
+    <namespaces>
+        <namespace kind="supplement" prefix="io" uri="http://hrdb/iibadmin"/>
+    </namespaces>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="addEmployee_submap">
+        <input namespace="http://hrdb/iibadmin" path="$var/EMPLOYEE"/>
+        <output namespace="http://hrdb/iibadmin" path="$var2/EmployeeResponse" var="EmployeeResponse"/>
+        <output path="$EMPLOYEE/db:insert(fn:false(),EMPNO,FIRSTNME,MIDINIT,LASTNAME,WORKDEPT,PHONENO,HIREDATE,JOB,EDLEVEL,SEX,BIRTHDATE,SALARY,BONUS,COMM)" var="dbinsert"/>
+        <transaction>
+            <insert ref="dbinsert">
+                <input path="."/>
+                <output path="$dbinsert/."/>
+                <move>
+                    <input path="EMPNO"/>
+                    <output path="EMPNO"/>
+                </move>
+                <move>
+                    <input path="FIRSTNME"/>
+                    <output path="FIRSTNME"/>
+                </move>
+                <move>
+                    <input path="MIDINIT"/>
+                    <output path="MIDINIT"/>
+                </move>
+                <move>
+                    <input path="LASTNAME"/>
+                    <output path="LASTNAME"/>
+                </move>
+                <move>
+                    <input path="WORKDEPT"/>
+                    <output path="WORKDEPT"/>
+                </move>
+                <move>
+                    <input path="PHONENO"/>
+                    <output path="PHONENO"/>
+                </move>
+                <move>
+                    <input path="HIREDATE"/>
+                    <output path="HIREDATE"/>
+                </move>
+                <move>
+                    <input path="JOB"/>
+                    <output path="JOB"/>
+                </move>
+                <move>
+                    <input path="EDLEVEL"/>
+                    <output path="EDLEVEL"/>
+                </move>
+                <move>
+                    <input path="SEX"/>
+                    <output path="SEX"/>
+                </move>
+                <move>
+                    <input path="BIRTHDATE"/>
+                    <output path="BIRTHDATE"/>
+                </move>
+                <move>
+                    <input path="SALARY"/>
+                    <output path="SALARY"/>
+                </move>
+                <move>
+                    <input path="BONUS"/>
+                    <output path="BONUS"/>
+                </move>
+                <move>
+                    <input path="COMM"/>
+                    <output path="COMM"/>
+                </move>
+            </insert>
+            <return>
+                <input path="$var1/DBInsertReturn" var="DBInsertReturn"/>
+                <input path="." var="EMPLOYEE1"/>
+                <output path="$EmployeeResponse/."/>
+                <move>
+                    <input path="$DBInsertReturn/NumberOfRowsInserted"/>
+                    <output path="DBResp/RowsAdded"/>
+                </move>
+                <assign value="0">
+                    <output path="DBResp/UserReturnCode"/>
+                </assign>
+                <assign value="0">
+                    <output path="DBResp/RowsRetrieved"/>
+                </assign>
+                <assign value="0">
+                    <output path="DBResp/RowsUpdated"/>
+                </assign>
+                <assign value="0">
+                    <output path="DBResp/RowsDeleted"/>
+                </assign>
+                <assign value="0">
+                    <output path="DBResp/SQLCode_ErrorCode"/>
+                </assign>
+                <assign>
+                    <output path="DBResp/SQLState_SQLState"/>
+                </assign>
+                <assign>
+                    <output path="DBResp/SQL_Error_Message"/>
+                </assign>
+                <local>
+                    <input path="$EMPLOYEE1/."/>
+                    <output path="EMPLOYEE"/>
+                    <move automap="true">
+                        <input path="EMPNO"/>
+                        <output path="EMPNO"/>
+                    </move>
+                    <move automap="true">
+                        <input path="FIRSTNME"/>
+                        <output path="FIRSTNME"/>
+                    </move>
+                    <move automap="true">
+                        <input path="MIDINIT"/>
+                        <output path="MIDINIT"/>
+                    </move>
+                    <move automap="true">
+                        <input path="LASTNAME"/>
+                        <output path="LASTNAME"/>
+                    </move>
+                    <move automap="true">
+                        <input path="WORKDEPT"/>
+                        <output path="WORKDEPT"/>
+                    </move>
+                    <move automap="true">
+                        <input path="PHONENO"/>
+                        <output path="PHONENO"/>
+                    </move>
+                    <move automap="true">
+                        <input path="HIREDATE"/>
+                        <output path="HIREDATE"/>
+                    </move>
+                    <move automap="true">
+                        <input path="JOB"/>
+                        <output path="JOB"/>
+                    </move>
+                    <move automap="true">
+                        <input path="EDLEVEL"/>
+                        <output path="EDLEVEL"/>
+                    </move>
+                    <move automap="true">
+                        <input path="SEX"/>
+                        <output path="SEX"/>
+                    </move>
+                    <move automap="true">
+                        <input path="BIRTHDATE"/>
+                        <output path="BIRTHDATE"/>
+                    </move>
+                    <move automap="true">
+                        <input path="SALARY"/>
+                        <output path="SALARY"/>
+                    </move>
+                    <move automap="true">
+                        <input path="BONUS"/>
+                        <output path="BONUS"/>
+                    </move>
+                    <move automap="true">
+                        <input path="COMM"/>
+                        <output path="COMM"/>
+                    </move>
+                </local>
+            </return>
+        </transaction>
+    </mappingDeclaration>
+</mappingRoot>

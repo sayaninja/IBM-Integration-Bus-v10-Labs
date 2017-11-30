@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://EmployeeService" xmlns:Q1="http://www.example.org/employeeNumber" xmlns:Q2="http://hrdb/iibuser" xmlns:tns="http://EmployeeService">
+    <xsd:import namespace="http://hrdb/iibuser" schemaLocation="../EmployeeService_submaps/hrdb/iibuser/HRDB.xsd"/>
+    <xsd:import namespace="http://www.example.org/employeeNumber" schemaLocation="../EmployeeService_submaps/employeeNumber.xsd"/>
+    <xsd:element xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" ibmSchExtn:docRoot="true" name="getEmployee">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="Q1:employeeNumber"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" ibmSchExtn:docRoot="true" name="getEmployeeResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="Q2:EmployeeResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    <xsd:element xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" ibmSchExtn:docRoot="true" name="getAllEmployees">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="input1" nillable="true" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+    <xsd:element xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" ibmSchExtn:docRoot="true" name="getAllEmployeesResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="output1" nillable="true" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

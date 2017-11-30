@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="default" version="8.0.5.0" xmlns:map="default">
+    <inlinedXMLSchema><![CDATA[<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">  
+    <xsd:element name="employeeNumber" type="xsd:string"/>  
+</xsd:schema>]]></inlinedXMLSchema>
+    <input path="jar:file://!com/ibm/etools/mft/map/xsds/assembly/Environment.xsd" var="var4"/>
+    <input path="jar:file://!com/ibm/etools/mft/map/xsds/predefined/BlobMessage.xsd" var="var"/>
+    <input inlinedXMLSchema="true" path="../schema_0.xsd" var="var1"/>
+    <output path="jar:file://!com/ibm/etools/mft/map/xsds/assembly/Environment.xsd" var="var5"/>
+    <output path="jar:file://!com/ibm/etools/mft/map/xsds/predefined/JsonDomainMsg.xsd" var="var2"/>
+    <output derivedFrom="MB:JSON_schema_in_swagger_document" path="/HR_Employee_and_Department_Services.json" var="var3"/>
+    <namespaces>
+        <namespace kind="supplement" prefix="out" uri="http://www.ibm.com/iib/msl/json"/>
+    </namespaces>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="getDetails_consolidateResponses">
+        <input path="$var4/mb:env(Environment)" var="Environment">
+            <cast derivedFrom="MB:JSON_schema_in_json_file" path="$Environment/Variables/any" qualifier="{http://www.ibm.com/iib/msl/json}EmployeeResponse" ref="var3" var="any"/>
+            <cast derivedFrom="MB:JSON_schema_in_json_file" path="$Environment/Variables/any" qualifier="{http://www.ibm.com/iib/msl/json}DepartmentResponse" ref="var3" var="any1"/>
+        </input>
+        <input derivedFrom="MB:JSON_operation_name:getDetails" path="$var/mb:msg(BLOB,assembly,BLOB,Properties,LocalEnvironment)" var="ComIbmMessageAssembly_BLOB">
+            <cast derivedFrom="MB:JSON_path_query_parm:employeeNumber" path="$ComIbmMessageAssembly_BLOB/LocalEnvironment/REST/Input/Parameters/any" qualifier="employeeNumber" ref="var1" var="any2"/>
+        </input>
+        <output path="$var5/mb:env(Environment)" var="Environment1">
+            <cast derivedFrom="MB:JSON_schema_in_json_file" path="$Environment1/Variables/any" qualifier="{http://www.ibm.com/iib/msl/json}EmployeeResponse" ref="var3" var="any3"/>
+            <cast derivedFrom="MB:JSON_schema_in_json_file" path="$Environment1/Variables/any" qualifier="{http://www.ibm.com/iib/msl/json}DepartmentResponse" ref="var3" var="any4"/>
+        </output>
+        <output namespace="http://www.ibm.com/iib/msl/json" path="$var2/mb:msg(JSON,assembly,JSON,Properties)" var="ComIbmMessageAssembly_JSON">
+            <cast derivedFrom="MB:JSON_operation_response" path="$ComIbmMessageAssembly_JSON/JSON/Data/type('anyType')" qualifier="{http://www.ibm.com/iib/msl/json}DetailedResponse" ref="var3" var="anyType"/>
+        </output>
+        <passthrough>
+            <input path="$Environment/."/>
+            <output path="$Environment1/."/>
+            <updates/>
+        </passthrough>
+        <move>
+            <input path="$ComIbmMessageAssembly_BLOB/Properties"/>
+            <output path="$ComIbmMessageAssembly_JSON/Properties"/>
+        </move>
+        <task type="info">
+            <documentation description="The REST API input data of operation getDetails.">This Task is provided to show the location of the REST API input data of operation getDetails.
+The path and query parameters are provided under "Parameters".
+You may need to use these as inputs to your mappings.</documentation>
+            <input path="$ComIbmMessageAssembly_BLOB/LocalEnvironment/REST/Input"/>
+        </task>
+        <local>
+            <input path="$Environment/Variables"/>
+            <output path="$ComIbmMessageAssembly_JSON/JSON/spath('Data',2)"/>
+            <move>
+                <input path="EmployeeResponse/DBResp"/>
+                <output path="DBResp_employee"/>
+            </move>
+            <move>
+                <input path="DepartmentResponse/DBResp"/>
+                <output path="DBResp_department"/>
+            </move>
+            <move>
+                <input path="EmployeeResponse/Employee/Item"/>
+                <output path="Employee"/>
+            </move>
+            <move>
+                <input path="DepartmentResponse/Department/Item"/>
+                <output path="Department"/>
+            </move>
+        </local>
+    </mappingDeclaration>
+</mappingRoot>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://EmployeeService" xmlns:Q1="http://hrdb/iibadmin" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:tns="http://EmployeeService">
+    <xsd:import namespace="http://hrdb/iibadmin" schemaLocation="hrdb/iibadmin/HRDB.xsd"/>
+    <xsd:import schemaLocation="employeeNumber.xsd"/>
+    <xsd:element ibmSchExtn:docRoot="true" name="getEmployee">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="employeeNumber"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element ibmSchExtn:docRoot="true" name="getEmployeeResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="Q1:EmployeeResponse"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    <xsd:element ibmSchExtn:docRoot="true" name="updEmployee">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="Q1:EMPLOYEE"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+    <xsd:element ibmSchExtn:docRoot="true" name="updEmployeeResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="Q1:EmployeeResponse"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+    <xsd:element ibmSchExtn:docRoot="true" name="dltEmployee">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="employeeNumber"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+    <xsd:element ibmSchExtn:docRoot="true" name="dltEmployeeResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="Q1:EmployeeResponse"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+    <xsd:element ibmSchExtn:docRoot="true" name="addEmployee">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="Q1:EMPLOYEE"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+    <xsd:element ibmSchExtn:docRoot="true" name="addEmployeeResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="Q1:EmployeeResponse"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--xtools2_universal_type_manager-->
+<xmi:XMI xmlns:datamodelversion="http://www.ibm.com/com.ibm.datatools.core/model/data/1.8.0.0" xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SQLDataTypes="http:///org/eclipse/datatools/modelbase/sql/datatypes.ecore" xmlns:SQLSchema="http:///org/eclipse/datatools/modelbase/sql/schema.ecore" xmlns:SQLServerModel="http:///com/ibm/db/models/sqlserver/sqlserver.ecore" xmlns:SQLTables="http:///org/eclipse/datatools/modelbase/sql/tables.ecore">
+  <SQLSchema:Database xmi:id="_4PDoUNATEeedVqwzKoioIA" name="BTMDB" vendor="SQL Server" version="2012" schemas="_4PRqwNATEeedVqwzKoioIA">
+    <eAnnotations xmi:id="_4PDoUdATEeedVqwzKoioIA" source="ConnectionURI">
+      <details xmi:id="_4PDoUtATEeedVqwzKoioIA" key="ConnectionKey" value="BTMDB"/>
+    </eAnnotations>
+  </SQLSchema:Database>
+  <SQLSchema:Schema xmi:id="_4PRqwNATEeedVqwzKoioIA" name="IIBADMIN" tables="_4PSR0NATEeedVqwzKoioIA _4PTf8NATEeedVqwzKoioIA _4PTf-NATEeedVqwzKoioIA _4PTgBNATEeedVqwzKoioIA _4PUHANATEeedVqwzKoioIA" database="_4PDoUNATEeedVqwzKoioIA"/>
+  <SQLTables:PersistentTable xmi:id="_4PSR0NATEeedVqwzKoioIA" name="WMB_MSGS" schema="_4PRqwNATEeedVqwzKoioIA">
+    <extensions xsi:type="SQLServerModel:SQLServerPersistentTableExtension" xmi:id="_4PSR0dATEeedVqwzKoioIA"/>
+    <columns xmi:id="_4PSR0tATEeedVqwzKoioIA" name="WMB_MSGKEY" nullable="false">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PSR09ATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="100"/>
+    </columns>
+    <columns xmi:id="_4PSR1NATEeedVqwzKoioIA" name="HAS_BITSTREAM">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PSR1dATEeedVqwzKoioIA" name="CHAR"/>
+    </columns>
+    <columns xmi:id="_4PSR1tATEeedVqwzKoioIA" name="HAS_EXCEPTION">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PSR19ATEeedVqwzKoioIA" name="CHAR"/>
+    </columns>
+    <columns xmi:id="_4PSR2NATEeedVqwzKoioIA" name="HAS_USERDATA">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PSR2dATEeedVqwzKoioIA" name="CHAR"/>
+    </columns>
+    <columns xmi:id="_4PSR2tATEeedVqwzKoioIA" name="EVENT_TYPE">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PSR29ATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="100"/>
+    </columns>
+    <columns xmi:id="_4PSR3NATEeedVqwzKoioIA" name="EVENT_NAME">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PSR3dATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="100"/>
+    </columns>
+    <columns xmi:id="_4PSR3tATEeedVqwzKoioIA" name="EVENT_SRCADDR">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PSR39ATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="100"/>
+    </columns>
+    <columns xmi:id="_4PSR4NATEeedVqwzKoioIA" name="BROKER_NAME">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PSR4dATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="100"/>
+    </columns>
+    <columns xmi:id="_4PSR4tATEeedVqwzKoioIA" name="BROKER_UUID">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PSR49ATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="100"/>
+    </columns>
+    <columns xmi:id="_4PSR5NATEeedVqwzKoioIA" name="EXGRP_NAME">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PSR5dATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="100"/>
+    </columns>
+    <columns xmi:id="_4PSR5tATEeedVqwzKoioIA" name="EXGRP_UUID">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PSR59ATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="100"/>
+    </columns>
+    <columns xmi:id="_4PSR6NATEeedVqwzKoioIA" name="MSGFLOW_NAME">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PSR6dATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="100"/>
+    </columns>
+    <columns xmi:id="_4PSR6tATEeedVqwzKoioIA" name="MSGFLOW_UUID">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PSR69ATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="100"/>
+    </columns>
+    <columns xmi:id="_4PSR7NATEeedVqwzKoioIA" name="APPL_NAME">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PSR7dATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="100"/>
+    </columns>
+    <columns xmi:id="_4PSR7tATEeedVqwzKoioIA" name="APPL_UUID">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PSR79ATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="100"/>
+    </columns>
+    <columns xmi:id="_4PSR8NATEeedVqwzKoioIA" name="LIBRARY_NAME">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PSR8dATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="100"/>
+    </columns>
+    <columns xmi:id="_4PSR8tATEeedVqwzKoioIA" name="LIBRARY_UUID">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PSR89ATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="100"/>
+    </columns>
+    <columns xmi:id="_4PSR9NATEeedVqwzKoioIA" name="NODE_NAME">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PSR9dATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="100"/>
+    </columns>
+    <columns xmi:id="_4PSR9tATEeedVqwzKoioIA" name="NODE_TYPE">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PSR99ATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="100"/>
+    </columns>
+    <columns xmi:id="_4PSR-NATEeedVqwzKoioIA" name="DETAIL">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PSR-dATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="100"/>
+    </columns>
+    <columns xmi:id="_4PSR-tATEeedVqwzKoioIA" name="TERMINAL_NAME">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PSR-9ATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="100"/>
+    </columns>
+    <columns xmi:id="_4PSR_NATEeedVqwzKoioIA" name="KEY_FLD_1_NM">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PSR_dATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="100"/>
+    </columns>
+    <columns xmi:id="_4PSR_tATEeedVqwzKoioIA" name="KEY_FLD_2_NM">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PSR_9ATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="100"/>
+    </columns>
+    <columns xmi:id="_4PSSANATEeedVqwzKoioIA" name="KEY_FLD_3_NM">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PSSAdATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="100"/>
+    </columns>
+    <columns xmi:id="_4PSSAtATEeedVqwzKoioIA" name="KEY_FLD_4_NM">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PSSA9ATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="100"/>
+    </columns>
+    <columns xmi:id="_4PSSBNATEeedVqwzKoioIA" name="KEY_FLD_5_NM">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PSSBdATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="100"/>
+    </columns>
+    <columns xmi:id="_4PSSBtATEeedVqwzKoioIA" name="EVENT_TIMESTAMP">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PSSB9ATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="100"/>
+    </columns>
+    <columns xmi:id="_4PSSCNATEeedVqwzKoioIA" name="LOCAL_TRANSACTION_ID">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PSSCdATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="100"/>
+    </columns>
+    <columns xmi:id="_4PSSCtATEeedVqwzKoioIA" name="PARENT_TRANSACTION_ID">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PSSC9ATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="100"/>
+    </columns>
+    <columns xmi:id="_4PSSDNATEeedVqwzKoioIA" name="GLOBAL_TRANSACTION_ID">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PSSDdATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="100"/>
+    </columns>
+  </SQLTables:PersistentTable>
+  <SQLTables:PersistentTable xmi:id="_4PTf8NATEeedVqwzKoioIA" name="WMB_EVENT_TYPES" schema="_4PRqwNATEeedVqwzKoioIA">
+    <extensions xsi:type="SQLServerModel:SQLServerPersistentTableExtension" xmi:id="_4PTf8dATEeedVqwzKoioIA"/>
+    <columns xmi:id="_4PTf8tATEeedVqwzKoioIA" name="EVENT_TYPE_ID" nullable="false">
+      <containedType xsi:type="SQLDataTypes:IntegerDataType" xmi:id="_4PTf89ATEeedVqwzKoioIA" name="INT" primitiveType="INTEGER"/>
+    </columns>
+    <columns xmi:id="_4PTf9NATEeedVqwzKoioIA" name="EVENT_NAME">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PTf9dATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="100"/>
+    </columns>
+    <columns xmi:id="_4PTf9tATEeedVqwzKoioIA" name="EVENT_DESCRIPTION">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PTf99ATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="100"/>
+    </columns>
+  </SQLTables:PersistentTable>
+  <SQLTables:PersistentTable xmi:id="_4PTf-NATEeedVqwzKoioIA" name="WMB_EVENT_FIELDS" schema="_4PRqwNATEeedVqwzKoioIA">
+    <extensions xsi:type="SQLServerModel:SQLServerPersistentTableExtension" xmi:id="_4PTf-dATEeedVqwzKoioIA"/>
+    <columns xmi:id="_4PTf-tATEeedVqwzKoioIA" name="EVENT_TYPE_ID" nullable="false">
+      <containedType xsi:type="SQLDataTypes:IntegerDataType" xmi:id="_4PTf-9ATEeedVqwzKoioIA" name="INT" primitiveType="INTEGER"/>
+    </columns>
+    <columns xmi:id="_4PTf_NATEeedVqwzKoioIA" name="KEY_FLD_ID" nullable="false">
+      <containedType xsi:type="SQLDataTypes:IntegerDataType" xmi:id="_4PTf_dATEeedVqwzKoioIA" name="INT" primitiveType="INTEGER"/>
+    </columns>
+    <columns xmi:id="_4PTf_tATEeedVqwzKoioIA" name="KEY_FLD_NAME">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PTf_9ATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="100"/>
+    </columns>
+    <columns xmi:id="_4PTgANATEeedVqwzKoioIA" name="KEY_FLD_DESC">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PTgAdATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="100"/>
+    </columns>
+    <columns xmi:id="_4PTgAtATEeedVqwzKoioIA" name="KEY_FLD_PATH">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PTgA9ATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="200"/>
+    </columns>
+  </SQLTables:PersistentTable>
+  <SQLTables:PersistentTable xmi:id="_4PTgBNATEeedVqwzKoioIA" name="WMB_BINARY_DATA" schema="_4PRqwNATEeedVqwzKoioIA">
+    <extensions xsi:type="SQLServerModel:SQLServerPersistentTableExtension" xmi:id="_4PTgBdATEeedVqwzKoioIA"/>
+    <columns xmi:id="_4PTgBtATEeedVqwzKoioIA" name="WMB_MSGKEY" nullable="false">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PTgB9ATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="100"/>
+    </columns>
+    <columns xmi:id="_4PTgCNATEeedVqwzKoioIA" name="DATA_TYPE" nullable="false">
+      <containedType xsi:type="SQLDataTypes:IntegerDataType" xmi:id="_4PTgCdATEeedVqwzKoioIA" name="INT" primitiveType="INTEGER"/>
+    </columns>
+    <columns xmi:id="_4PTgCtATEeedVqwzKoioIA" name="ENCODING" nullable="false">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PTgC9ATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="50"/>
+    </columns>
+    <columns xmi:id="_4PTgDNATEeedVqwzKoioIA" name="DATA">
+      <containedType xsi:type="SQLDataTypes:BinaryStringDataType" xmi:id="_4PTgDdATEeedVqwzKoioIA" name="BINARY" primitiveType="BINARY" length="50"/>
+    </columns>
+  </SQLTables:PersistentTable>
+  <SQLTables:PersistentTable xmi:id="_4PUHANATEeedVqwzKoioIA" name="WMB_BUSTRANS" schema="_4PRqwNATEeedVqwzKoioIA">
+    <extensions xsi:type="SQLServerModel:SQLServerPersistentTableExtension" xmi:id="_4PUHAdATEeedVqwzKoioIA"/>
+    <columns xmi:id="_4PUHAtATEeedVqwzKoioIA" name="ID" nullable="false">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PUHA9ATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="100"/>
+    </columns>
+    <columns xmi:id="_4PUHBNATEeedVqwzKoioIA" name="FIRST_SEEN_TIMESTAMP">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PUHBdATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="100"/>
+    </columns>
+    <columns xmi:id="_4PUHBtATEeedVqwzKoioIA" name="LAST_SEEN_TIMESTAMP">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PUHB9ATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="100"/>
+    </columns>
+    <columns xmi:id="_4PUHCNATEeedVqwzKoioIA" name="BTD_NAME" nullable="false">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PUHCdATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="100"/>
+    </columns>
+    <columns xmi:id="_4PUHCtATEeedVqwzKoioIA" name="STATUS">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PUHC9ATEeedVqwzKoioIA" name="CHAR"/>
+    </columns>
+    <columns xmi:id="_4PUHDNATEeedVqwzKoioIA" name="WMB_MSGKEY" nullable="false">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PUHDdATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="100"/>
+    </columns>
+    <columns xmi:id="_4PUHDtATEeedVqwzKoioIA" name="SEQ_NO" nullable="false">
+      <containedType xsi:type="SQLDataTypes:IntegerDataType" xmi:id="_4PUHD9ATEeedVqwzKoioIA" name="INT" primitiveType="INTEGER"/>
+    </columns>
+    <columns xmi:id="_4PUHENATEeedVqwzKoioIA" name="SEQ_TIME">
+      <containedType xsi:type="SQLDataTypes:IntegerDataType" xmi:id="_4PUHEdATEeedVqwzKoioIA" name="BIGINT" primitiveType="BIGINT"/>
+    </columns>
+    <columns xmi:id="_4PUHEtATEeedVqwzKoioIA" name="ROLE">
+      <containedType xsi:type="SQLDataTypes:IntegerDataType" xmi:id="_4PUHE9ATEeedVqwzKoioIA" name="INT" primitiveType="INTEGER"/>
+    </columns>
+    <columns xmi:id="_4PUHFNATEeedVqwzKoioIA" name="UNIQUE_FLOW_NAME">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_4PUHFdATEeedVqwzKoioIA" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="500"/>
+    </columns>
+  </SQLTables:PersistentTable>
+</xmi:XMI>

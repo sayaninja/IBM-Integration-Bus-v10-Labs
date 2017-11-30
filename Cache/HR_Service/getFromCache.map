@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="default" version="8.0.5.0" xmlns:map="default">
+    <inlinedXMLSchema><![CDATA[<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">      
+    <xsd:element name="departmentKey" type="xsd:string"/>      
+</xsd:schema>]]></inlinedXMLSchema>
+    <input path="jar:file://!com/ibm/etools/mft/map/xsds/predefined/BlobMessage.xsd" var="var"/>
+    <input inlinedXMLSchema="true" path="../schema_0.xsd" var="var1"/>
+    <input path="jar:file://!com/ibm/msl/mapping/cache/xsds/cache.xsd" var="var5"/>
+    <output path="jar:file://!com/ibm/etools/mft/map/xsds/predefined/JsonDomainMsg.xsd" var="var2"/>
+    <output derivedFrom="MB:JSON_schema_in_swagger_document" path="/swagger.json" var="var3"/>
+    <output path="jar:file://!com/ibm/msl/mapping/cache/xsds/cache.xsd" var="var4"/>
+    <namespaces>
+        <namespace kind="supplement" prefix="out" uri="http://www.ibm.com/iib/msl/json"/>
+        <namespace kind="supplement" prefix="io" uri="http://www.ibm.com/msl/cache/1.0"/>
+    </namespaces>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="getFromCache">
+        <input derivedFrom="MB:JSON_operation_name:getFromCache" path="$var/mb:msg(BLOB,assembly,BLOB,Properties,LocalEnvironment)" var="ComIbmMessageAssembly_BLOB">
+            <cast derivedFrom="MB:JSON_path_query_parm:departmentKey" path="$ComIbmMessageAssembly_BLOB/LocalEnvironment/REST/Input/Parameters/any" qualifier="departmentKey" ref="var1"/>
+        </input>
+        <output namespace="http://www.ibm.com/iib/msl/json" path="$var2/mb:msg(JSON,assembly,JSON,Properties)" var="ComIbmMessageAssembly_JSON">
+            <cast derivedFrom="MB:JSON_operation_response" path="$ComIbmMessageAssembly_JSON/JSON/Data/type('anyType')" qualifier="{http://www.ibm.com/iib/msl/json}DepartmentCacheGetResponse" ref="var3"/>
+        </output>
+        <move>
+            <input path="$ComIbmMessageAssembly_BLOB/Properties"/>
+            <output path="$ComIbmMessageAssembly_JSON/Properties"/>
+        </move>
+        <task type="info">
+            <documentation description="The REST API input data of operation getFromCache.">This Task is provided to show the location of the REST API input data of operation getFromCache.
+The path and query parameters are provided under "Parameters".
+You may need to use these as inputs to your mappings.</documentation>
+            <input path="$ComIbmMessageAssembly_BLOB/LocalEnvironment/REST/Input"/>
+        </task>
+        <foreach>
+            <input path="$ComIbmMessageAssembly_BLOB/LocalEnvironment/REST/Input/Parameters/departmentKey" var="departmentKey2"/>
+            <output path="$ComIbmMessageAssembly_JSON/JSON/spath('Data',2)"/>
+            <transaction>
+                <cacheGet>
+                    <input path="$departmentKey2/."/>
+                    <output path="$var4/CacheGet"/>
+                    <move>
+                        <input path="."/>
+                        <output path="Key"/>
+                    </move>
+                    <assign value="Penguin">
+                        <output path="CacheName"/>
+                    </assign>
+                    <assign value="Bear">
+                        <output path="MapName"/>
+                    </assign>
+                </cacheGet>
+                <cacheReturn>
+                    <input path="$var5/CacheGetReturn" var="CacheGetReturn"/>
+                    <input path="$departmentKey2/." var="departmentKey"/>
+                    <output path="CacheResp" var="CacheResp"/>
+                    <output path="Department" var="Department"/>
+                    <condition>
+                        <if>
+                            <input path="$CacheGetReturn/Value" var="Value"/>
+                            <input path="$departmentKey/." var="departmentKey1"/>
+                            <output path="$CacheResp/." var="CacheResp1"/>
+                            <output path="$Department/." var="Department1"/>
+                            <test lang="xpath">fn:exists( $Value)</test>
+                            <move>
+                                <input path="$Value/." var="Value1"/>
+                                <output path="$Department1/DEPTNAME"/>
+                            </move>
+                            <assign value="0">
+                                <output path="$CacheResp1/ReturnCode"/>
+                            </assign>
+                            <assign value="1">
+                                <output path="$CacheResp1/EntriesRetrieved"/>
+                            </assign>
+                        </if>
+                        <else>
+                            <output path="$CacheResp/."/>
+                            <assign value="0">
+                                <output path="ReturnCode"/>
+                            </assign>
+                            <assign value="0">
+                                <output path="EntriesRetrieved"/>
+                            </assign>
+                        </else>
+                    </condition>
+                </cacheReturn>
+                <cacheFailure>
+                    <input path="$var5/CacheFailure"/>
+                    <output path="CacheResp"/>
+                    <move>
+                        <input path="ID"/>
+                        <output path="ERROR_ID"/>
+                    </move>
+                    <move>
+                        <input path="Message"/>
+                        <output path="ERROR_Message"/>
+                    </move>
+                    <move>
+                        <input path="Inserts"/>
+                        <output path="ERROR_Inserts/Item"/>
+                    </move>
+                    <assign value="-1">
+                        <output path="EntriesRetrieved"/>
+                    </assign>
+                </cacheFailure>
+            </transaction>
+        </foreach>
+    </mappingDeclaration>
+</mappingRoot>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="default" version="8.0.5.0" xmlns:map="default">
+    <inlinedXMLSchema><![CDATA[<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">   
+    <xsd:element name="departmentKey" type="xsd:string"/>   
+</xsd:schema>]]></inlinedXMLSchema>
+    <input path="jar:file://!com/ibm/etools/mft/map/xsds/predefined/JsonDomainMsg.xsd" var="var"/>
+    <input derivedFrom="MB:JSON_schema_in_swagger_document" path="/swagger.json" var="var1"/>
+    <input inlinedXMLSchema="true" path="../schema_0.xsd" var="var2"/>
+    <input path="jar:file://!com/ibm/msl/mapping/rdb/xsds/dbreturn.xsd" var="var4"/>
+    <input path="jar:file://!com/ibm/msl/mapping/rdb/xsds/dbexception.xsd" var="var5"/>
+    <output path="jar:file://!com/ibm/etools/mft/map/xsds/predefined/JsonDomainMsg.xsd" var="var3"/>
+    <output path="db:table(/HRDB.dbm,HRDB,IIBADMIN,DEPARTMENT)" var="DEPARTMENT"/>
+    <namespaces>
+        <namespace kind="supplement" prefix="in" uri="http://www.ibm.com/iib/msl/json"/>
+    </namespaces>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="insertDepartment_InsertDeptMap">
+        <input derivedFrom="MB:JSON_operation_name:insertDepartment" namespace="http://www.ibm.com/iib/msl/json" path="$var/mb:msg(JSON,assembly,JSON,Properties,LocalEnvironment)" var="ComIbmMessageAssembly_JSON">
+            <cast derivedFrom="MB:JSON_operation_request" path="$ComIbmMessageAssembly_JSON/JSON/Data/type('anyType')" qualifier="{http://www.ibm.com/iib/msl/json}DEPARTMENT" ref="var1" var="anyType"/>
+            <cast derivedFrom="MB:JSON_path_query_parm:departmentKey" path="$ComIbmMessageAssembly_JSON/LocalEnvironment/REST/Input/Parameters/any" qualifier="departmentKey" ref="var2" var="any"/>
+        </input>
+        <output namespace="http://www.ibm.com/iib/msl/json" path="$var3/mb:msg(JSON,assembly,JSON,Properties)" var="MessageAssembly">
+            <cast castType="userDefined" path="$MessageAssembly/JSON/Data/type('anyType')" qualifier="{http://www.ibm.com/iib/msl/json}JSONObject" ref="var3" var="anyType1"/>
+            <cast derivedFrom="MB:JSON_schema_in_json_file" path="$MessageAssembly/JSON/spath('Data',2)/any" qualifier="{http://www.ibm.com/iib/msl/json}DepartmentResponse" ref="var1" var="any1"/>
+        </output>
+        <output path="$DEPARTMENT/db:insert(fn:false(),DEPTNO,DEPTNAME,MGRNO,ADMRDEPT,LOCATION)" var="dbinsert"/>
+        <task type="info">
+            <documentation description="The REST API input data of operation insertDepartment.">This Task is provided to show the location of the REST API input data of operation insertDepartment.
+The path and query parameters are provided under "Parameters".
+You may need to use these as inputs to your mappings.</documentation>
+            <input path="$ComIbmMessageAssembly_JSON/LocalEnvironment/REST/Input"/>
+        </task>
+        <move>
+            <input path="$ComIbmMessageAssembly_JSON/Properties"/>
+            <output path="$MessageAssembly/Properties"/>
+        </move>
+        <transaction>
+            <insert ref="dbinsert">
+                <input path="$ComIbmMessageAssembly_JSON/JSON/spath('Data',2)"/>
+                <output path="$dbinsert/."/>
+                <move automap="true">
+                    <input path="DEPTNO"/>
+                    <output path="DEPTNO"/>
+                </move>
+                <move automap="true">
+                    <input path="DEPTNAME"/>
+                    <output path="DEPTNAME"/>
+                </move>
+                <move automap="true">
+                    <input path="MGRNO"/>
+                    <output path="MGRNO"/>
+                </move>
+                <move automap="true">
+                    <input path="ADMRDEPT"/>
+                    <output path="ADMRDEPT"/>
+                </move>
+                <move automap="true">
+                    <input path="LOCATION"/>
+                    <output path="LOCATION"/>
+                </move>
+            </insert>
+            <return>
+                <input path="$var4/DBInsertReturn" var="DBInsertReturn"/>
+                <input path="$ComIbmMessageAssembly_JSON/JSON/spath('Data',2)" var="Data"/>
+                <output path="$MessageAssembly/JSON/spath('Data',2)/DepartmentResponse"/>
+                <move automap="true">
+                    <input path="$Data/DEPTNO"/>
+                    <output path="Department/Item/DEPTNO"/>
+                </move>
+                <move automap="true">
+                    <input path="$Data/DEPTNAME"/>
+                    <output path="Department/Item/DEPTNAME"/>
+                </move>
+                <move automap="true">
+                    <input path="$Data/MGRNO"/>
+                    <output path="Department/Item/MGRNO"/>
+                </move>
+                <move automap="true">
+                    <input path="$Data/ADMRDEPT"/>
+                    <output path="Department/Item/ADMRDEPT"/>
+                </move>
+                <move automap="true">
+                    <input path="$Data/LOCATION"/>
+                    <output path="Department/Item/LOCATION"/>
+                </move>
+                <move>
+                    <input path="$DBInsertReturn/NumberOfRowsInserted"/>
+                    <output path="DBResp/RowsAdded"/>
+                </move>
+            </return>
+            <failure>
+                <input path="$var5/DBExceptions" var="DBExceptions"/>
+                <input path="$ComIbmMessageAssembly_JSON/JSON/spath('Data',2)" var="Data1"/>
+                <output path="$MessageAssembly/JSON/spath('Data',2)/DepartmentResponse"/>
+                <move automap="true">
+                    <input path="$Data1/DEPTNO"/>
+                    <output path="Department/Item/DEPTNO"/>
+                </move>
+                <move automap="true">
+                    <input path="$Data1/DEPTNAME"/>
+                    <output path="Department/Item/DEPTNAME"/>
+                </move>
+                <move automap="true">
+                    <input path="$Data1/MGRNO"/>
+                    <output path="Department/Item/MGRNO"/>
+                </move>
+                <move automap="true">
+                    <input path="$Data1/ADMRDEPT"/>
+                    <output path="Department/Item/ADMRDEPT"/>
+                </move>
+                <move automap="true">
+                    <input path="$Data1/LOCATION"/>
+                    <output path="Department/Item/LOCATION"/>
+                </move>
+                <move>
+                    <input path="$DBExceptions/DBException[1]/Message"/>
+                    <output path="DBResp/SQL_Error_Message"/>
+                </move>
+                <move>
+                    <input path="$DBExceptions/DBException[1]/SQLState"/>
+                    <output path="DBResp/SQLSTATE_SQLState"/>
+                </move>
+                <move>
+                    <input path="$DBExceptions/DBException[1]/ErrorCode"/>
+                    <output path="DBResp/SQLCODE_Errorcode"/>
+                </move>
+            </failure>
+        </transaction>
+    </mappingDeclaration>
+</mappingRoot>

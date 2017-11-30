@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="false" targetNamespace="default" version="8.0.5.0" xmlns:map="default">
+    <input path="/employeeNumber.xsd" var="var"/>
+    <input path="jar:file://!com/ibm/msl/mapping/rdb/xsds/dbreturn.xsd" var="var4"/>
+    <output path="/hrdb/iibadmin/HRDB.xsd" var="var2"/>
+    <output path="db:table(/HRDB.dbm,HRDB,IIBADMIN,EMPLOYEE)" var="EMPLOYEE1"/>
+    <namespaces>
+        <namespace kind="supplement" prefix="io" uri="http://hrdb/iibadmin"/>
+    </namespaces>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="dltEmployee_submap">
+        <input path="$var/type('employeeNumberType')" var="employeeNumberType"/>
+        <output namespace="http://hrdb/iibadmin" path="$var2/EmployeeResponse" var="EmployeeResponse"/>
+        <output path="$EMPLOYEE1/db:delete(fn:false(),db:where('IIBADMIN.EMPLOYEE.EMPNO =  ?','?'=$employeeNumberType))" var="dbdelete1"/>
+        <transaction>
+            <delete ref="dbdelete1">
+                <output path="$dbdelete1/."/>
+            </delete>
+            <return>
+                <input path="$var4/DBDeleteReturn"/>
+                <output path="$EmployeeResponse/."/>
+                <move>
+                    <input path="NumberOfRowsDeleted"/>
+                    <output path="DBResp/RowsDeleted"/>
+                </move>
+                <assign value="0">
+                    <output path="DBResp/UserReturnCode"/>
+                </assign>
+                <assign value="0">
+                    <output path="DBResp/RowsRetrieved"/>
+                </assign>
+                <assign value="0">
+                    <output path="DBResp/RowsAdded"/>
+                </assign>
+                <assign value="0">
+                    <output path="DBResp/RowsUpdated"/>
+                </assign>
+                <assign value="0">
+                    <output path="DBResp/SQLCode_ErrorCode"/>
+                </assign>
+                <assign>
+                    <output path="DBResp/SQLState_SQLState"/>
+                </assign>
+                <assign>
+                    <output path="DBResp/SQL_Error_Message"/>
+                </assign>
+            </return>
+        </transaction>
+    </mappingDeclaration>
+</mappingRoot>

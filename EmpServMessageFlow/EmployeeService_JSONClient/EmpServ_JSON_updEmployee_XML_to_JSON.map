@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="default" version="8.0.5.0" xmlns:map="default">
+    <input path="mbsharedlib://EmployeeService_interface_and_maps/hrdb/iibadmin/HRDB.xsd" var="var1"/>
+    <input path="mbsharedlib://EmployeeService_interface_and_maps/EmployeeService_InlineSchema1.xsd" var="var2"/>
+    <output path="jar:file://!com/ibm/etools/mft/map/xsds/predefined/JsonDomainMsg.xsd" var="var"/>
+    <namespaces>
+        <namespace kind="supplement" prefix="in" uri="http://hrdb/iibadmin"/>
+        <namespace kind="supplement" prefix="out" uri="http://www.ibm.com/iib/msl/json"/>
+        <namespace kind="supplement" prefix="in2" uri="http://EmployeeService"/>
+    </namespaces>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="EmpServ_JSON_updEmployee_XML_to_JSON">
+        <input namespace="http://EmployeeService" path="$var2/mb:msg(updEmployeeResponse,assembly,XMLNSC,Properties)" var="MessageAssembly"/>
+        <output namespace="http://www.ibm.com/iib/msl/json" path="$var/mb:msg(JSON,assembly,JSON,Properties)" var="ComIbmMessageAssembly_JSON">
+            <cast castType="userDefined" path="$ComIbmMessageAssembly_JSON/JSON/Data/type('anyType')" qualifier="{http://www.ibm.com/iib/msl/json}JSONObject" ref="var"/>
+            <cast path="$ComIbmMessageAssembly_JSON/JSON/spath('Data',2)/any" qualifier="{http://hrdb/iibadmin}EmployeeResponse" ref="var1"/>
+        </output>
+        <move>
+            <input path="$MessageAssembly/Properties"/>
+            <output path="$ComIbmMessageAssembly_JSON/Properties"/>
+            <override>
+                <assign value="">
+                    <output path="$ComIbmMessageAssembly_JSON/Properties/MessageSet"/>
+                </assign>
+                <assign value="">
+                    <output path="$ComIbmMessageAssembly_JSON/Properties/MessageType"/>
+                </assign>
+                <assign value="">
+                    <output path="$ComIbmMessageAssembly_JSON/Properties/MessageFormat"/>
+                </assign>
+                <assign value="application/json">
+                    <output path="$ComIbmMessageAssembly_JSON/Properties/ContentType"/>
+                </assign>
+            </override>
+        </move>
+        <move>
+            <input path="$MessageAssembly/updEmployeeResponse/EmployeeResponse/DBResp"/>
+            <output path="$ComIbmMessageAssembly_JSON/JSON/spath('Data',2)/EmployeeResponse/DBResp"/>
+        </move>
+        <move>
+            <input path="$MessageAssembly/updEmployeeResponse/EmployeeResponse/EMPLOYEE"/>
+            <output path="$ComIbmMessageAssembly_JSON/JSON/spath('Data',2)/EmployeeResponse/EMPLOYEE"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

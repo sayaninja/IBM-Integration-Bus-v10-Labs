@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="default" version="8.0.5.0" xmlns:map="default">
+    <inlinedXMLSchema><![CDATA[<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">  
+    <xsd:element name="Image" type="xsd:string"/>  
+</xsd:schema>]]></inlinedXMLSchema>
+    <input path="jar:file://!com/ibm/etools/mft/map/xsds/assembly/Environment.xsd" var="var1"/>
+    <input inlinedXMLSchema="true" path="../schema_0.xsd" var="var"/>
+    <input inlinedXMLSchema="true" path="../schema_0.xsd" var="var2"/>
+    <output path="jar:file://!com/ibm/etools/mft/map/xsds/assembly/Environment.xsd" var="var3"/>
+    <output path="jar:file://!com/ibm/etools/mft/map/xsds/predefined/BlobMessage.xsd" var="var4"/>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="EmbeddedImage_createOutputBLOBMessage">
+        <input path="$var1/mb:env(Environment)">
+            <cast castType="userDefined" path="Variables/any" qualifier="Image" ref="var" var="any"/>
+        </input>
+        <output path="$var3/mb:env(Environment)" var="Environment">
+            <cast castType="userDefined" path="$Environment/Variables/any" qualifier="Image" ref="var" var="any1"/>
+        </output>
+        <output path="$var4/mb:msg(BLOB,assembly,BLOB,Properties)" var="MessageAssembly"/>
+        <passthrough>
+            <input path="."/>
+            <output path="$Environment/."/>
+            <updates/>
+        </passthrough>
+        <move>
+            <input path="Variables/Image"/>
+            <output path="$MessageAssembly/BLOB/text()"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

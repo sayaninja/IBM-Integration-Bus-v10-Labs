@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="default" version="8.0.5.0" xmlns:map="default" xmlns:map1="default">
+    <input path="/EmployeeService_InlineSchema1.xsd"/>
+    <output path="/EmployeeService_InlineSchema1.xsd"/>
+    <imports>
+        <import kind="map" location="/dltEmployee_submap.map" namespace="default"/>
+    </imports>
+    <namespaces>
+        <namespace kind="supplement" prefix="out" uri="http://hrdb/iibadmin"/>
+        <namespace kind="supplement" prefix="io" uri="http://EmployeeService"/>
+    </namespaces>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="dltEmployee_WS">
+        <input namespace="http://EmployeeService" path="mb:msg(dltEmployee,assembly,XMLNSC,Properties)" var="MessageAssembly"/>
+        <output namespace="http://EmployeeService" path="mb:msg(dltEmployeeResponse,assembly,XMLNSC,Properties)" var="MessageAssembly1"/>
+        <move>
+            <input path="$MessageAssembly/Properties"/>
+            <output path="$MessageAssembly1/Properties"/>
+        </move>
+        <submap ref="map1:dltEmployee_submap">
+            <input path="$MessageAssembly/dltEmployee/employeeNumber"/>
+            <output path="$MessageAssembly1/dltEmployeeResponse/EmployeeResponse"/>
+        </submap>
+    </mappingDeclaration>
+</mappingRoot>

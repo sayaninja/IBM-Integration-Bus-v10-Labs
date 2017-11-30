@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="EmployeeService" targetNamespace="http://EmployeeService" xmlns:bons1="http://hrdb/iibadmin" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://EmployeeService" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:documentation>
+    <wsdl:appinfo source="WMQI_APPINFO">
+      <MRWSDLAppInfo imported="true">
+        <binding hasEncoding="false" imported="true" name="EmployeeServiceHttpBinding" originalBindingStyle="document"/>
+        <generatedXSD location="EmployeeService_InlineSchema1.xsd"/>
+      </MRWSDLAppInfo>
+    </wsdl:appinfo>
+  </wsdl:documentation>
+  
+  
+  
+  
+  <wsdl:types>
+    
+        <xsd:schema targetNamespace="http://EmployeeService" xmlns:bons2="http://hrdb/iibadmin">
+      <xsd:import namespace="http://hrdb/iibadmin" schemaLocation="hrdb/iibadmin/HRDB.xsd"/>
+            <xsd:import namespace="http://hrdb/iibadmin" schemaLocation="hrdb/iibadmin/HRDB.xsd"/>
+            <xsd:import namespace="http://hrdb/iibadmin" schemaLocation="hrdb/iibadmin/HRDB.xsd"/>
+            <xsd:import namespace="http://hrdb/iibadmin" schemaLocation="hrdb/iibadmin/HRDB.xsd"/>
+            <xsd:import namespace="http://hrdb/iibadmin" schemaLocation="hrdb/iibadmin/HRDB.xsd"/>
+            <xsd:import namespace="http://hrdb/iibadmin" schemaLocation="hrdb/iibadmin/HRDB.xsd"/>
+      <xsd:include schemaLocation="EmployeeService_InlineSchema1.xsd"/>
+    </xsd:schema>
+    </wsdl:types>
+  <wsdl:message name="getEmployeeRequestMsg">
+    <wsdl:part element="tns:getEmployee" name="getEmployeeParameters"/>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeResponseMsg">
+    <wsdl:part element="tns:getEmployeeResponse" name="getEmployeeResult"/>
+  </wsdl:message>
+    <wsdl:message name="updEmployeeRequestMsg">
+    <wsdl:part element="tns:updEmployee" name="updEmployeeParameters"/>
+  </wsdl:message>
+    <wsdl:message name="updEmployeeResponseMsg">
+    <wsdl:part element="tns:updEmployeeResponse" name="updEmployeeResult"/>
+  </wsdl:message>
+    <wsdl:message name="dltEmployeeRequestMsg">
+    <wsdl:part element="tns:dltEmployee" name="dltEmployeeParameters"/>
+  </wsdl:message>
+    <wsdl:message name="dltEmployeeResponseMsg">
+    <wsdl:part element="tns:dltEmployeeResponse" name="dltEmployeeResult"/>
+  </wsdl:message>
+    <wsdl:message name="addEmployeeRequestMsg">
+    <wsdl:part element="tns:addEmployee" name="addEmployeeParameters"/>
+  </wsdl:message>
+    <wsdl:message name="addEmployeeResponseMsg">
+    <wsdl:part element="tns:addEmployeeResponse" name="addEmployeeResult"/>
+  </wsdl:message>
+    <wsdl:portType name="EmployeeService">
+    <wsdl:operation name="getEmployee">
+      <wsdl:input message="tns:getEmployeeRequestMsg" name="getEmployeeRequest"/>
+      <wsdl:output message="tns:getEmployeeResponseMsg" name="getEmployeeResponse"/>
+    </wsdl:operation>
+        <wsdl:operation name="updEmployee">
+      <wsdl:input message="tns:updEmployeeRequestMsg" name="updEmployeeRequest"/>
+      <wsdl:output message="tns:updEmployeeResponseMsg" name="updEmployeeResponse"/>
+    </wsdl:operation>
+        <wsdl:operation name="dltEmployee">
+      <wsdl:input message="tns:dltEmployeeRequestMsg" name="dltEmployeeRequest"/>
+      <wsdl:output message="tns:dltEmployeeResponseMsg" name="dltEmployeeResponse"/>
+    </wsdl:operation>
+        <wsdl:operation name="addEmployee">
+      <wsdl:input message="tns:addEmployeeRequestMsg" name="addEmployeeRequest"/>
+      <wsdl:output message="tns:addEmployeeResponseMsg" name="addEmployeeResponse"/>
+    </wsdl:operation>
+    </wsdl:portType>
+  <wsdl:binding name="EmployeeServiceHttpBinding" type="tns:EmployeeService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="getEmployee">
+            <soap:operation soapAction="http://EmployeeService/getEmployee"/>
+            <wsdl:input name="getEmployeeRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+      <wsdl:output name="getEmployeeResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+    </wsdl:operation>
+        <wsdl:operation name="updEmployee">
+            <soap:operation soapAction="http://EmployeeService/updEmployee"/>
+            <wsdl:input name="updEmployeeRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+      <wsdl:output name="updEmployeeResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+    </wsdl:operation>
+        <wsdl:operation name="dltEmployee">
+            <soap:operation soapAction="http://EmployeeService/dltEmployee"/>
+            <wsdl:input name="dltEmployeeRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+      <wsdl:output name="dltEmployeeResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+    </wsdl:operation>
+        <wsdl:operation name="addEmployee">
+      <soap:operation soapAction="http://EmployeeService/addEmployee"/>
+      <wsdl:input name="addEmployeeRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addEmployeeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    </wsdl:binding>
+  <wsdl:service name="EmployeeServiceHttpService">
+    <wsdl:port binding="tns:EmployeeServiceHttpBinding" name="EmployeeServiceHttpPort">
+      <soap:address location="http://localhost:7800/EmployeeService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
