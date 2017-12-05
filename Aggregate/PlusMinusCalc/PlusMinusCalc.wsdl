@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="PlusMinusCalc" targetNamespace="http://PlusMinusCalc" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://PlusMinusCalc" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:documentation>
+    <wsdl:appinfo source="WMQI_APPINFO">
+      <MRWSDLAppInfo imported="true">
+        <binding hasEncoding="false" imported="true" name="PlusMinusCalcHttpBinding" originalBindingStyle="document"/>
+        <generatedXSD location="PlusMinusCalc_InlineSchema1.xsd"/>
+      </MRWSDLAppInfo>
+    </wsdl:appinfo>
+  </wsdl:documentation>
+  
+  
+  <wsdl:types>
+    
+        <xsd:schema targetNamespace="http://PlusMinusCalc">
+      <xsd:include schemaLocation="PlusMinusCalc_InlineSchema1.xsd"/>
+    </xsd:schema>
+    </wsdl:types>
+  <wsdl:message name="PlusRequestMsg">
+    <wsdl:part element="tns:Plus" name="PlusParameters"/>
+  </wsdl:message>
+  <wsdl:message name="PlusResponseMsg">
+    <wsdl:part element="tns:PlusResponse" name="PlusResult"/>
+  </wsdl:message>
+    <wsdl:message name="MinusRequestMsg">
+    <wsdl:part element="tns:Minus" name="MinusParameters"/>
+  </wsdl:message>
+    <wsdl:message name="MinusResponseMsg">
+    <wsdl:part element="tns:MinusResponse" name="MinusResult"/>
+  </wsdl:message>
+    <wsdl:portType name="PlusMinusCalc">
+    <wsdl:operation name="Plus">
+            <wsdl:input message="tns:PlusRequestMsg" name="PlusRequest"/>
+            <wsdl:output message="tns:PlusResponseMsg" name="PlusResponse"/>
+    </wsdl:operation>
+        <wsdl:operation name="Minus">
+      <wsdl:input message="tns:MinusRequestMsg" name="MinusRequest"/>
+      <wsdl:output message="tns:MinusResponseMsg" name="MinusResponse"/>
+    </wsdl:operation>
+    </wsdl:portType>
+  <wsdl:binding name="PlusMinusCalcHttpBinding" type="tns:PlusMinusCalc">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="Plus">
+            <soap:operation soapAction="http://PlusMinusCalc/Plus"/>
+            <wsdl:input name="PlusRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+      <wsdl:output name="PlusResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+    </wsdl:operation>
+        <wsdl:operation name="Minus">
+      <soap:operation soapAction="http://PlusMinusCalc/Minus"/>
+      <wsdl:input name="MinusRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="MinusResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    </wsdl:binding>
+  <wsdl:service name="PlusMinusCalcHttpService">
+    <wsdl:port binding="tns:PlusMinusCalcHttpBinding" name="PlusMinusCalcHttpPort">
+      <soap:address location="http://localhost:7800/PlusMinusCalc"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

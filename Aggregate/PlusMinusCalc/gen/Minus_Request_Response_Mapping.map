@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="gen" version="8.0.5.0" xmlns:map="gen">
+    <input path="/PlusMinusCalc_InlineSchema1.xsd"/>
+    <output path="/PlusMinusCalc_InlineSchema1.xsd"/>
+    <namespaces>
+        <namespace kind="supplement" prefix="io" uri="http://PlusMinusCalc"/>
+        <namespace kind="extension" prefix="fn" uri="http://www.w3.org/2005/xpath-functions"/>
+    </namespaces>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="Minus_Request_Response_Mapping">
+        <input namespace="http://PlusMinusCalc" path="mb:msg(Minus,assembly,XMLNSC,Properties)" var="ComIbmMessageAssembly_Minus"/>
+        <output namespace="http://PlusMinusCalc" path="mb:msg(MinusResponse,assembly,XMLNSC,Properties)" var="ComIbmMessageAssembly_MinusResponse"/>
+        <move>
+            <input path="$ComIbmMessageAssembly_Minus/Properties"/>
+            <output path="$ComIbmMessageAssembly_MinusResponse/Properties"/>
+        </move>
+        <expression>
+            <input path="$ComIbmMessageAssembly_Minus/Minus/input1" var="input1"/>
+            <input path="$ComIbmMessageAssembly_Minus/Minus/input2" var="input2"/>
+            <output path="$ComIbmMessageAssembly_MinusResponse/MinusResponse/output"/>
+            <code lang="xpath">($input1)-($input2)</code>
+        </expression>
+    </mappingDeclaration>
+</mappingRoot>

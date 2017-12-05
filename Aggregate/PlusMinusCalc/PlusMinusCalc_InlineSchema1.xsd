@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://PlusMinusCalc" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:tns="http://PlusMinusCalc">
+      <xsd:element ibmSchExtn:docRoot="true" name="Plus">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="input1" nillable="true" type="xsd:int"/>
+                <xsd:element name="input2" nillable="true" type="xsd:int"/>
+            </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element ibmSchExtn:docRoot="true" name="PlusResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="output" nillable="true" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    <xsd:element ibmSchExtn:docRoot="true" name="Minus">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="input1" nillable="true" type="xsd:int"/>
+        <xsd:element name="input2" nillable="true" type="xsd:int"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+    <xsd:element ibmSchExtn:docRoot="true" name="MinusResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="output" nillable="true" type="xsd:int"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

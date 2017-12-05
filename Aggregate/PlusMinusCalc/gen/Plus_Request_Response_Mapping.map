@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" domainIDExtension="mb" mainMap="true" targetNamespace="gen" version="8.0.5.0" xmlns:map="gen">
+    <input path="/PlusMinusCalc_InlineSchema1.xsd"/>
+    <output path="/PlusMinusCalc_InlineSchema1.xsd"/>
+    <namespaces>
+        <namespace kind="supplement" prefix="io" uri="http://PlusMinusCalc"/>
+        <namespace kind="extension" prefix="fn" uri="http://www.w3.org/2005/xpath-functions"/>
+    </namespaces>
+    <generation engine="xquery"/>
+    <mappingDeclaration name="Plus_Request_Response_Mapping">
+        <input namespace="http://PlusMinusCalc" path="mb:msg(Plus,assembly,XMLNSC,Properties)" var="ComIbmMessageAssembly_Plus"/>
+        <output namespace="http://PlusMinusCalc" path="mb:msg(PlusResponse,assembly,XMLNSC,Properties)" var="ComIbmMessageAssembly_PlusResponse"/>
+        <move>
+            <input path="$ComIbmMessageAssembly_Plus/Properties"/>
+            <output path="$ComIbmMessageAssembly_PlusResponse/Properties"/>
+        </move>
+        <function ref="fn:sum">
+            <input path="$ComIbmMessageAssembly_Plus/Plus/input1" var="input1"/>
+            <input path="$ComIbmMessageAssembly_Plus/Plus/input2" var="input2"/>
+            <output path="$ComIbmMessageAssembly_PlusResponse/PlusResponse/output"/>
+            <param name="arg" value="($input1,$input2)"/>
+        </function>
+    </mappingDeclaration>
+</mappingRoot>
